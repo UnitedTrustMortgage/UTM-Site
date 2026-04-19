@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Partners — United Trust Mortgage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="partners.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body data-page="partners">
+
+<!-- ============ NAV (mirrors index.html exactly) ============ -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/utm-blue.png" alt="UTM"/>
+    <div class="nav-logo-mark">United Trust<small>Mortgage</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#loans">Loan Programs</a></li>
+    <li><a href="index.html#team">Our Team</a></li>
+    <li><a href="partners.html" class="is-current">Partners</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get pre-qualified <span class="arrow">→</span></a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="partners-hero" data-screen-label="Partners Hero">
+  <div class="partners-hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> For realtor partners</div>
+      <h1>A toolkit built for <em>your</em> listings.</h1>
+    </div>
+    <p>Create branded or co-branded marketing flyers in minutes — open house, just funded, and loan program pieces designed to convert. More resources land here over time.</p>
+  </div>
+</section>
+
+<!-- ============ RESOURCE SHELL ============ -->
+<section class="partners-shell" data-screen-label="Partners Shell">
+  <div class="partners-shell-inner">
+
+    <!-- Sticky resource tabs (expandable) -->
+    <nav class="resource-nav" aria-label="Partner resources">
+      <div class="resource-nav-inner">
+        <button class="res-tab active" data-resource="flyers">
+          <span class="ico">✦</span> Flyer Generator
+        </button>
+        <button class="res-tab coming" disabled>
+          <span class="ico">◎</span> Pricing Scenarios <span class="pill">Soon</span>
+        </button>
+        <button class="res-tab coming" disabled>
+          <span class="ico">◈</span> Pre-Approval Kit <span class="pill">Soon</span>
+        </button>
+        <button class="res-tab coming" disabled>
+          <span class="ico">▤</span> Program Guides <span class="pill">Soon</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===== RESOURCE: FLYER GENERATOR ===== -->
+    <div class="resource active" data-resource="flyers">
+
+      <header class="resource-head">
+        <div class="resource-head-left">
+          <div class="eyebrow"><span class="dot"></span> Resource 01 · Flyer Generator</div>
+          <h2>Marketing flyers, <em>ready in minutes.</em></h2>
+          <p>Fill in your details once — we'll remember them next time. Pick a flyer type, add the specifics, and export a polished PNG or PDF ready for email, print, or social.</p>
+        </div>
+      </header>
+
+      <!-- Flyer type selector -->
+      <div class="flyer-type-bar" role="tablist" aria-label="Flyer type">
+        <button class="flyer-type-btn active" data-flyer="open-house" role="tab">
+          <span class="ico">◈</span> Open House
+        </button>
+        <button class="flyer-type-btn" data-flyer="just-funded" role="tab">
+          <span class="ico">✦</span> Just Funded
+        </button>
+        <button class="flyer-type-btn" data-flyer="loan-programs" role="tab">
+          <span class="ico">▤</span> Loan Programs
+        </button>
+      </div>
+
+      <!-- Generator grid -->
+      <div class="generator">
+
+        <!-- LEFT: form panels -->
+        <div class="gen-left">
+
+          <!-- 1. Branding mode -->
+          <section class="panel">
+            <header class="panel-head">
+              <div class="panel-head-l">
+                <span class="panel-head-num">01</span>
+                <h3>Branding</h3>
+              </div>
+              <span class="panel-head-pill" id="brandStatusPill">Solo</span>
+            </header>
+            <div class="panel-body">
+              <div class="brand-toggle" role="radiogroup" aria-label="Branding mode">
+                <button class="brand-opt active" data-brand="solo" role="radio" aria-checked="true">
+                  <span class="brand-opt-radio"></span>
+                  <div>
+                    <div class="brand-opt-title">Solo branding</div>
+                    <div class="brand-opt-sub">Only your info and headshot appear on the flyer.</div>
+                  </div>
+                </button>
+                <button class="brand-opt" data-brand="co" role="radio" aria-checked="false">
+                  <span class="brand-opt-radio"></span>
+                  <div>
+                    <div class="brand-opt-title">Co-brand with Arin</div>
+                    <div class="brand-opt-sub">Arin's info and headshot are added automatically.</div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Co-brand reveal -->
+              <div id="cobrandReveal" style="display:none; margin-top:14px;">
+                <div class="cobrand-card">
+                  <div class="cobrand-avatar">
+                    <img src="assets/arin-headshot.jpg" alt="Arin Baghermian"/>
+                  </div>
+                  <div class="cobrand-info">
+                    <div class="cobrand-name">Arin Baghermian</div>
+                    <div class="cobrand-role">Mortgage Broker · NMLS #1220456</div>
+                    <div class="cobrand-meta">
+                      <span>818.447.7705</span>
+                      <span>arin@myunitedtrust.com</span>
+                      <span>myunitedtrust.com</span>
+                    </div>
+                  </div>
+                  <div class="cobrand-lock">Auto-filled</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Partner info -->
+          <section class="panel">
+            <header class="panel-head">
+              <div class="panel-head-l">
+                <span class="panel-head-num">02</span>
+                <h3>Your information</h3>
+              </div>
+              <span class="panel-head-pill warm" id="partnerSavedPill" style="display:none;">Saved</span>
+            </header>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="fg"><label for="pFirst">First name</label><input type="text" id="pFirst" placeholder="Jane"/></div>
+                <div class="fg"><label for="pLast">Last name</label><input type="text" id="pLast" placeholder="Doe"/></div>
+                <div class="fg"><label for="pEmail">Email</label><input type="email" id="pEmail" placeholder="jane@agency.com"/></div>
+                <div class="fg"><label for="pPhone">Phone</label><input type="tel" id="pPhone" placeholder="(555) 123-4567"/></div>
+                <div class="fg"><label for="pLicense">License #</label><input type="text" id="pLicense" placeholder="DRE 01234567"/></div>
+                <div class="fg"><label for="pCompany">Company</label><input type="text" id="pCompany" placeholder="Premier Realty"/></div>
+                <div class="fg"><label for="pWebsite">Company website</label><input type="text" id="pWebsite" placeholder="premierrealty.com"/></div>
+                <div class="fg"><label for="pCompanyLic">Company license #</label><input type="text" id="pCompanyLic" placeholder="DRE 12345678"/></div>
+                <div class="fg full"><label>Headshot</label>
+                  <div class="upload-drop" id="pHeadshotDrop">
+                    <input type="file" id="pHeadshotInput" accept="image/*"/>
+                    <div class="upload-drop-empty">
+                      <div class="upload-icon">⤴</div>
+                      <div class="upload-title">Upload your headshot</div>
+                      <div class="upload-sub">JPG or PNG · square works best</div>
+                    </div>
+                    <div class="upload-preview" style="display:none;">
+                      <img class="upload-preview-img" alt=""/>
+                      <div class="upload-preview-info">
+                        <div class="upload-preview-name"></div>
+                        <div class="upload-preview-meta">Ready to use</div>
+                      </div>
+                      <button type="button" class="upload-remove" data-remove="pHeadshot" aria-label="Remove">✕</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Flyer-specific fields — filled per type -->
+          <section class="panel" id="fieldsPanel">
+            <header class="panel-head">
+              <div class="panel-head-l">
+                <span class="panel-head-num">03</span>
+                <h3 id="fieldsPanelTitle">Open House details</h3>
+              </div>
+              <span class="panel-head-pill" id="fieldsPanelPill">Required</span>
+            </header>
+            <div class="panel-body" id="fieldsPanelBody">
+              <!-- Filled by JS based on flyer type -->
+            </div>
+          </section>
+
+          <!-- 4. Style -->
+          <section class="panel">
+            <header class="panel-head">
+              <div class="panel-head-l">
+                <span class="panel-head-num">04</span>
+                <h3>Flyer style</h3>
+              </div>
+              <span class="panel-head-pill">Optional</span>
+            </header>
+            <div class="panel-body">
+              <div class="fg" style="margin-bottom:18px;">
+                <label>Color scheme</label>
+                <div class="theme-swatches" id="themeSwatches">
+                  <button class="theme-swatch selected" data-theme="navy" style="background:#0B1E3F;" aria-label="Navy"></button>
+                  <button class="theme-swatch" data-theme="cream" style="background:linear-gradient(135deg,#FAF7F2 50%,#0B1E3F 50%);" aria-label="Cream"></button>
+                  <button class="theme-swatch" data-theme="forest" style="background:#2F4F3F;" aria-label="Forest"></button>
+                  <button class="theme-swatch" data-theme="terracotta" style="background:#B5583F;" aria-label="Terracotta"></button>
+                  <button class="theme-swatch" data-theme="charcoal" style="background:#1C1C1E;" aria-label="Charcoal"></button>
+                  <button class="theme-swatch" data-theme="warmgold" style="background:linear-gradient(135deg,#0B1E3F 50%,#CDA26A 50%);" aria-label="Navy + gold"></button>
+                </div>
+              </div>
+              <div class="fg">
+                <label for="tagline">Tagline / headline <span style="text-transform:none;letter-spacing:normal;color:var(--ink-mute);">(optional)</span></label>
+                <input type="text" id="tagline" placeholder="Leave blank for the default headline"/>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sticky action bar -->
+          <div class="action-bar">
+            <div class="action-bar-left">
+              <strong>Ready to export?</strong> &nbsp; Preview updates live.
+            </div>
+            <button class="btn-sec" id="resetBtn">Reset</button>
+            <button class="btn-gen" id="dlPngBtn">Download PNG</button>
+            <button class="btn-gen amber" id="dlPdfBtn">Download PDF</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: live preview -->
+        <aside class="gen-right">
+          <div class="preview-wrap">
+            <header class="preview-head">
+              <div class="preview-head-title">
+                <span class="dot"></span> Live preview
+              </div>
+              <div class="preview-head-actions">
+                <button class="btn-dl" id="dlPngBtn2">PNG</button>
+                <button class="btn-dl primary" id="dlPdfBtn2">PDF</button>
+              </div>
+            </header>
+            <div class="preview-canvas-wrap">
+              <div class="flyer-canvas" id="flyerCanvas">
+                <!-- rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:11.5px; color:var(--ink-mute); padding:12px 6px; line-height:1.55; text-align:center;">
+            Flyers export at 1200 × 1600 · print-ready at 150dpi.<br/>
+            Your info saves to this browser only.
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ===== RESOURCE: COMING SOON teaser block ===== -->
+    <div class="resource" data-resource="coming-soon">
+      <header class="resource-head">
+        <div class="resource-head-left">
+          <div class="eyebrow"><span class="dot"></span> More resources coming</div>
+          <h2>The hub is <em>just getting started.</em></h2>
+          <p>We're adding new tools for our partners every month. Here's what's in the pipeline.</p>
+        </div>
+      </header>
+      <div class="coming-soon-grid">
+        <div class="coming-card">
+          <div class="coming-card-ico">◎</div>
+          <h4>Pricing scenarios</h4>
+          <p>Generate rate comparisons and payment breakdowns for your buyer in seconds.</p>
+        </div>
+        <div class="coming-card">
+          <div class="coming-card-ico">◈</div>
+          <h4>Pre-approval kit</h4>
+          <p>A ready-to-send packet with document checklists, timeline, and FAQs for your client.</p>
+        </div>
+        <div class="coming-card">
+          <div class="coming-card-ico">▤</div>
+          <h4>Program guides</h4>
+          <p>One-pagers on Non-QM, DSCR, Bank Statement, and more — designed to share with clients.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Notification -->
+<div class="partner-notif" id="notif">
+  <span class="dot"></span>
+  <span id="notifMsg">Saved</span>
+</div>
+
+<!-- Footer (match index) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/utm-white.png" alt="UTM"/>
+        <p>Arin Baghermian · NMLS #1220456 · United Trust Mortgage NMLS #2591548</p>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#team">Our team</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Programs</h5><ul>
+        <li><a href="index.html#loans">All programs</a></li>
+        <li><a href="partners.html">For partners</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:818-447-7705">(818) 447-7705</a></li>
+        <li><a href="mailto:arin@myunitedtrust.com">arin@myunitedtrust.com</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 United Trust Mortgage · NMLS #1220456 · All rights reserved.</div>
+      <div class="footer-badges"><div class="footer-badge">Equal Housing</div><div class="footer-badge">NMLS #1220456</div></div>
+    </div>
+  </div>
+</footer>
+
+<script src="partners-app.js"></script>
+</body>
+</html>

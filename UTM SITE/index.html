@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>United Trust Mortgage — Home Loans, Thoughtfully Done</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#" onclick="showPage('home');return false;">
+    <img src="assets/utm-blue.png" alt="UTM"/>
+    <div class="nav-logo-mark">United Trust<small>Mortgage</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('loans');return false;">Loan Programs</a></li>
+    <li><a href="#" onclick="showPage('team');return false;">Our Team</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="#" onclick="showPage('home');jumpTo('testimonials');return false;">Reviews</a></li>
+    <li><a href="#" onclick="showPage('home');jumpTo('contact');return false;" class="nav-cta">Get pre-qualified <span class="arrow">→</span></a></li>
+  </ul>
+</nav>
+
+<!-- ============ HOME ============ -->
+<div class="page active" id="page-home" data-screen-label="01 Home">
+
+<!-- HERO -->
+<section class="hero" data-screen-label="Hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Now originating in Southern California
+        <span style="color:var(--ink-mute); margin: 0 4px;">·</span>
+        NMLS #1220456
+      </div>
+      <h1>A mortgage that<br/>fits your life,<br/><em class="underline-sweep">not the other way around.</em></h1>
+      <p class="hero-sub">United Trust Mortgage pairs deep expertise in non-traditional lending with a calm, transparent process. Conventional to DSCR to bank-statement — we close the deals others can't.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="jumpTo('contact')">Start your application <span class="arrow">→</span></button>
+        <button class="btn btn-ghost" onclick="showPage('loans')">Browse loan programs</button>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-stars">★★★★★</div>
+        <div class="hero-trust-text"><strong>5.0 rating</strong> from recent borrowers<br/>Licensed mortgage professionals since 2015</div>
+      </div>
+    </div>
+
+    <!-- LIVE CALCULATOR -->
+    <div class="calc" id="calc">
+      <div class="calc-header">
+        <div class="calc-title">Estimate your payment</div>
+        <div class="calc-live"><span class="dot"></span> Live</div>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-label"><span>Home price</span><span class="calc-row-value" id="priceLbl">$750,000</span></div>
+        <input type="range" class="calc-slider" id="price" min="200000" max="3000000" step="10000" value="750000"/>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-label"><span>Down payment</span><span class="calc-row-value"><span id="downPctLbl">20%</span> · <span id="downLbl">$150,000</span></span></div>
+        <input type="range" class="calc-slider" id="downPct" min="3" max="50" step="1" value="20"/>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-label"><span>Interest rate</span><span class="calc-row-value" id="rateLbl">6.25%</span></div>
+        <input type="range" class="calc-slider" id="rate" min="3" max="10" step="0.05" value="6.25"/>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-label"><span>Loan term</span></div>
+        <div class="calc-term" id="termBtns">
+          <button class="calc-term-btn" data-term="15">15 yr</button>
+          <button class="calc-term-btn active" data-term="30">30 yr</button>
+          <button class="calc-term-btn" data-term="40">40 yr</button>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-label">Estimated monthly payment</div>
+        <div class="calc-result-value">$<span id="paymentLbl">3,694</span><small>/mo</small></div>
+        <div class="calc-result-sub">
+          <span>Principal &amp; interest · <span id="loanAmtLbl">$600,000</span> loan</span>
+          <span>Pre-qualify →</span>
+        </div>
+      </div>
+
+      <button class="calc-apply" onclick="jumpTo('contact')">Get a personalized rate <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-label">Trusted partners &amp; licensors</div>
+    <div class="ticker-items">
+      <div class="ticker-item"><strong>NMLS</strong> #1220456</div>
+      <div class="ticker-item"><strong>Fannie Mae</strong> Approved</div>
+      <div class="ticker-item"><strong>FHA · VA</strong> Direct</div>
+      <div class="ticker-item"><strong>DSCR · NonQM</strong> Specialist</div>
+      <div class="ticker-item"><strong>Equal Housing</strong> Lender</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats" data-screen-label="Stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num" data-count="11"><span class="counter">0</span><small>+</small></div>
+      <div class="stat-label">Loan programs<br/>under one roof</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="18"><span class="counter">0</span><small> days avg</small></div>
+      <div class="stat-label">From application<br/>to clear-to-close</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="98"><span class="counter">0</span><small>%</small></div>
+      <div class="stat-label">Funded rate on<br/>pre-approved files</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5<small>.0</small></div>
+      <div class="stat-label">Average rating<br/>from closed clients</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" data-screen-label="Why UTM">
+  <div class="values-inner">
+    <div class="reveal">
+      <div class="eyebrow">Why United Trust</div>
+      <h2 class="section-title" style="margin-top:18px;">Built around<br/><em>the way you borrow.</em></h2>
+      <p class="section-sub">Most lenders fit you into a box. We don't. Our team underwrites, originates, and closes loans across the full spectrum — so the plan matches your situation, not the other way around.</p>
+      <div style="margin-top:36px; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="jumpTo('contact')">Talk to a loan officer <span class="arrow">→</span></button>
+      </div>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V7z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h4>True specialists</h4>
+        <p>Our team underwrites and closes the same non-QM programs we broker. When your file is complex, that depth matters.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h4>Fast, on-time closings</h4>
+        <p>Clear-to-close in as little as 18 days on standard files. We respect your contract dates and your agent's timeline.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-5 4z"/></svg>
+        </div>
+        <h4>Humans, not hold music</h4>
+        <p>Every client gets their loan officer's cell number. Evenings, weekends, contract deadlines — we pick up.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+        </div>
+        <h4>Transparent pricing</h4>
+        <p>You'll see the rate, points, lender credits, and fees up front — itemized. No surprises at closing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" data-screen-label="Programs">
+  <div class="programs-head reveal">
+    <div>
+      <div class="eyebrow">Loan programs</div>
+      <h2 class="section-title" style="margin-top:18px;">Every kind<br/>of borrower.</h2>
+    </div>
+    <p>Conventional, government, jumbo, and a deep bench of non-QM — from DSCR investment loans to bank-statement and P&amp;L. If there's a path, we'll find it.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>01</span><span class="program-tag">Agency</span></div>
+      <h3>Conventional</h3>
+      <p>The gold standard: 3–20% down, competitive rates, flexible terms. For borrowers with documented income and solid credit.</p>
+      <div class="program-meta">
+        <span><strong>3%</strong>min down</span>
+        <span><strong>620+</strong>FICO</span>
+        <span><strong>$766k</strong>limit</span>
+      </div>
+    </div>
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>02</span><span class="program-tag">Agency</span></div>
+      <h3>Jumbo</h3>
+      <p>Above conforming limits, built for high-value homes. Competitive pricing on $766k+ with flexible qualifying criteria.</p>
+      <div class="program-meta">
+        <span><strong>10%</strong>min down</span>
+        <span><strong>680+</strong>FICO</span>
+        <span><strong>$3M+</strong>available</span>
+      </div>
+    </div>
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>03</span><span class="program-tag gov">Government</span></div>
+      <h3>VA &amp; FHA</h3>
+      <p>Government-backed options for veterans and first-time buyers. $0 down on VA, 3.5% on FHA, lenient credit requirements.</p>
+      <div class="program-meta">
+        <span><strong>0%</strong>down (VA)</span>
+        <span><strong>580+</strong>FICO</span>
+        <span><strong>No PMI</strong>on VA</span>
+      </div>
+    </div>
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>04</span><span class="program-tag">Non-QM</span></div>
+      <h3>DSCR</h3>
+      <p>Investment-property financing that qualifies on rental income, not personal tax returns. Scale a portfolio without W-2s.</p>
+      <div class="program-meta">
+        <span><strong>20%</strong>min down</span>
+        <span><strong>660+</strong>FICO</span>
+        <span><strong>No income</strong>docs</span>
+      </div>
+    </div>
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>05</span><span class="program-tag">Non-QM</span></div>
+      <h3>Bank Statement</h3>
+      <p>Self-employed? Qualify on 12–24 months of personal or business bank statements. No tax returns required.</p>
+      <div class="program-meta">
+        <span><strong>10%</strong>min down</span>
+        <span><strong>640+</strong>FICO</span>
+        <span><strong>12–24mo</strong>statements</span>
+      </div>
+    </div>
+    <div class="program" onclick="showPage('loans')">
+      <div class="program-num"><span>06</span><span class="program-tag spec">Specialty</span></div>
+      <h3>Construction &amp; Fix/Flip</h3>
+      <p>Single-close construction-to-perm and bridge financing for investors. One application, one closing, draws aligned with your build.</p>
+      <div class="program-meta">
+        <span><strong>85%</strong>LTC</span>
+        <span><strong>12mo</strong>terms</span>
+        <span><strong>Fast</strong>funding</span>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1240px; margin: 40px auto 0; text-align: center;">
+    <button class="btn btn-ghost" style="color:var(--paper); border-color:rgba(255,255,255,0.2);" onclick="showPage('loans')">See all 11 programs <span class="arrow">→</span></button>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" data-screen-label="Process">
+  <div class="process-inner">
+    <div class="reveal" style="max-width: 640px;">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title" style="margin-top:18px;">Four calm steps,<br/>no mystery.</h2>
+    </div>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="process-num">01 · INTRO</div>
+        <h4>Talk with a loan officer</h4>
+        <p>A 15-minute call to understand your goals, timeline, and situation — no credit pull yet, no pressure.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02 · MATCH</div>
+        <h4>Get your program &amp; rate</h4>
+        <p>We map you to the right program, show side-by-side options, and quote a real rate with itemized costs.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03 · APPLY</div>
+        <h4>Submit &amp; underwrite</h4>
+        <p>Upload docs through our secure portal. We work directly with underwriting so you get answers in days, not weeks.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04 · CLOSE</div>
+        <h4>Sign &amp; get the keys</h4>
+        <p>Clear-to-close in as little as 18 days. You'll sign in-person or at home — your choice — and the wire goes out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials" data-screen-label="Reviews">
+  <div class="testimonials-inner">
+    <div class="testi-head reveal">
+      <div>
+        <div class="eyebrow">Client stories</div>
+        <h2 class="section-title" style="margin-top:18px;">Real people,<br/>real closings.</h2>
+      </div>
+      <div class="testi-rating">
+        <div class="testi-rating-stars">★★★★★</div>
+        <div class="testi-rating-text">5.0 average from recent borrowers<br/>across purchase &amp; refinance</div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The communication was exceptional. He kept me informed at every step and made the whole process feel effortless.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div><div class="testi-name">Luis M.</div><div class="testi-role">First-time homeowner · Glendale</div></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Always available to answer questions, had a great attitude, and truly put the client first at all times.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div><div class="testi-name">Michele R.</div><div class="testi-role">Real Estate Agent · Burbank</div></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Efficient, quick to respond, transparent. Couldn't ask for anything more in a loan officer.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">E</div>
+          <div><div class="testi-name">Eric T.</div><div class="testi-role">Real Estate Agent · LA County</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" data-screen-label="Contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="eyebrow">Get pre-qualified</div>
+      <h2 class="section-title" style="margin-top:18px;">Ready when<br/>you are, <em>today.</em></h2>
+      <p class="lead">Send us a few details and a loan officer will reach out within a business day with next steps, a rate range, and a clear plan.</p>
+      <div class="contact-info">
+        <a href="tel:818-447-7035" class="contact-info-item">
+          <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.36-1.36a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <span>(818) 447-7035</span>
+        </a>
+        <a href="mailto:arin@myunitedtrust.com" class="contact-info-item">
+          <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <span>arin@myunitedtrust.com</span>
+        </a>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
+          <span>Southern California — hybrid &amp; remote closings</span>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg></div>
+          <span>NMLS #1220456 · Equal Housing Lender</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal">
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').innerHTML='Thanks — we\\'ll be in touch ✓'; this.querySelector('.form-submit').style.background='var(--sage)';">
+        <div class="form-title">Request a call</div>
+        <div class="form-sub">Takes about a minute. We never share your info.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" placeholder="Jane" required/>
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" placeholder="Doe" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(818) 000-0000" required/>
+        </div>
+        <div class="form-group">
+          <label>What are you looking for?</label>
+          <select>
+            <option>Purchase a home</option>
+            <option>Refinance</option>
+            <option>Investment property (DSCR)</option>
+            <option>Non-QM / bank statement</option>
+            <option>Construction or fix &amp; flip</option>
+            <option>Not sure — need guidance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else? (optional)</label>
+          <textarea placeholder="Timeline, property address, scenario..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send to a loan officer <span class="arrow">→</span></button>
+        <div class="form-legal">By submitting, you agree to be contacted about your inquiry. No spam, ever.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/utm-white.png" alt="UTM"/>
+        <p>Licensed mortgage professionals serving Southern California. Originating across conventional, government, jumbo, and non-QM programs.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+          <li><a href="#" onclick="showPage('team');return false;">Our team</a></li>
+          <li><a href="#" onclick="showPage('home');jumpTo('testimonials');return false;">Reviews</a></li>
+          <li><a href="#" onclick="showPage('home');jumpTo('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('loans');return false;">Conventional &amp; Jumbo</a></li>
+          <li><a href="#" onclick="showPage('loans');return false;">VA &amp; FHA</a></li>
+          <li><a href="#" onclick="showPage('loans');return false;">DSCR &amp; Non-QM</a></li>
+          <li><a href="#" onclick="showPage('loans');return false;">Construction &amp; Bridge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:818-447-7035">(818) 447-7035</a></li>
+          <li><a href="mailto:arin@myunitedtrust.com">arin@myunitedtrust.com</a></li>
+          <li>Southern California</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 United Trust Mortgage · NMLS #1220456 · All rights reserved.<br/>Rates and programs subject to change. Equal Housing Opportunity.</div>
+      <div class="footer-badges">
+        <div class="footer-badge">Equal Housing</div>
+        <div class="footer-badge">NMLS #1220456</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end home -->
+
+<!-- ============ LOAN PROGRAMS PAGE ============ -->
+<div class="page" id="page-loans" data-screen-label="02 Loans">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow">Loan programs</div>
+      <h1>One team.<br/><em>Every kind</em> of loan.</h1>
+    </div>
+    <p>From conventional and government-backed loans to a deep non-QM bench — if there's a path to your closing, we have the program to get there.</p>
+  </div>
+</section>
+
+<!-- Filters -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-chip active" data-filter="all">All programs <small>11</small></button>
+  <button class="filter-chip" data-filter="agency">Agency</button>
+  <button class="filter-chip" data-filter="gov">Government</button>
+  <button class="filter-chip" data-filter="nonqm">Non-QM</button>
+  <button class="filter-chip" data-filter="spec">Specialty</button>
+</div>
+
+<section class="loans-page">
+  <div class="loans-grid-page" id="loansGrid">
+    <!-- Cards -->
+    <div class="loan-card-page" data-cat="agency">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <span class="loan-pill agency">Agency</span>
+      </div>
+      <h3>Conventional</h3>
+      <p>The gold standard. Competitive rates and flexible terms for well-qualified buyers with documented income.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">3%</div></div>
+        <div><div class="loan-spec-label">Min FICO</div><div class="loan-spec-value">620</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="agency">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 12 0 3 6-9 12L3 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M3 9h18"/></svg></div>
+        <span class="loan-pill agency">Agency</span>
+      </div>
+      <h3>Jumbo</h3>
+      <p>Financing above conforming limits for high-value properties, with competitive pricing and flexible criteria.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Starts at</div><div class="loan-spec-value">$766k</div></div>
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">10%</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="gov">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6z"/><path d="m8 12 3 3 5-6"/></svg></div>
+        <span class="loan-pill gov">Government</span>
+      </div>
+      <h3>VA Loans</h3>
+      <p>For veterans, active-duty service members, and eligible surviving spouses. No down payment, no PMI.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">0%</div></div>
+        <div><div class="loan-spec-label">PMI</div><div class="loan-spec-value">None</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="gov">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 8 12 3l9 5"/><path d="M7 12v4M12 12v4M17 12v4"/></svg></div>
+        <span class="loan-pill gov">Government</span>
+      </div>
+      <h3>FHA Loans</h3>
+      <p>Government-backed financing with low down payments and lenient credit. Ideal for first-time buyers.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">3.5%</div></div>
+        <div><div class="loan-spec-label">Min FICO</div><div class="loan-spec-value">580</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="nonqm">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <span class="loan-pill nonqm">Non-QM</span>
+      </div>
+      <h3>Bank Statement</h3>
+      <p>Self-employed borrowers qualify using 12–24 months of bank statements. No W-2s or tax returns required.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Docs</div><div class="loan-spec-value">12–24mo</div></div>
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">10%</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="nonqm">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 14h8M8 17h5"/></svg></div>
+        <span class="loan-pill nonqm">Non-QM</span>
+      </div>
+      <h3>P&amp;L Loans</h3>
+      <p>Qualify on a CPA-prepared profit &amp; loss statement. No bank statements required for business owners.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Docs</div><div class="loan-spec-value">CPA P&amp;L</div></div>
+        <div><div class="loan-spec-label">Min FICO</div><div class="loan-spec-value">660</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="nonqm">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <span class="loan-pill nonqm">Non-QM</span>
+      </div>
+      <h3>Stated Income</h3>
+      <p>Asset-based qualification for high-net-worth borrowers whose tax returns don't reflect their full picture.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Qualifies on</div><div class="loan-spec-value">Assets</div></div>
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">25%</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="nonqm">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="6" height="10"/><rect x="10" y="6" width="6" height="14"/><rect x="17" y="13" width="4" height="7"/></svg></div>
+        <span class="loan-pill nonqm">Non-QM</span>
+      </div>
+      <h3>DSCR</h3>
+      <p>Debt Service Coverage Ratio loans qualify on the property's rental income, not your personal income.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Qualifies on</div><div class="loan-spec-value">Rent</div></div>
+        <div><div class="loan-spec-label">Min down</div><div class="loan-spec-value">20%</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="nonqm">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
+        <span class="loan-pill nonqm">Non-QM</span>
+      </div>
+      <h3>Alt-Doc</h3>
+      <p>Alternative documentation for borrowers who don't fit conventional molds — 1099-only, asset depletion, more.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Docs</div><div class="loan-spec-value">Flexible</div></div>
+        <div><div class="loan-spec-label">Programs</div><div class="loan-spec-value">6+</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="spec">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg></div>
+        <span class="loan-pill spec">Specialty</span>
+      </div>
+      <h3>Construction</h3>
+      <p>Single-close construction-to-permanent financing. One application, one closing — from groundbreak to move-in.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Closes</div><div class="loan-spec-value">Single</div></div>
+        <div><div class="loan-spec-label">Draws</div><div class="loan-spec-value">Custom</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-card-page" data-cat="spec">
+      <div class="loan-card-top">
+        <div class="loan-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a5 5 0 0 1-6.9 6.9L3 18l3 3 4.8-4.8a5 5 0 0 1 6.9-6.9L14.7 12z"/></svg></div>
+        <span class="loan-pill spec">Specialty</span>
+      </div>
+      <h3>Fix &amp; Flip</h3>
+      <p>Short-term bridge financing for investors acquiring, renovating, and reselling. Fast funding with draws aligned to timeline.</p>
+      <div class="loan-card-specs">
+        <div><div class="loan-spec-label">Max LTC</div><div class="loan-spec-value">85%</div></div>
+        <div><div class="loan-spec-label">Term</div><div class="loan-spec-value">12–24mo</div></div>
+      </div>
+      <a class="loan-learn">Learn more <span class="arrow">→</span></a>
+    </div>
+
+    <div class="loan-cta-card">
+      <div>
+        <h3>Not sure which program fits?</h3>
+        <p>Tell us your scenario and a loan officer will map you to the right program — usually in under 15 minutes, no credit pull.</p>
+      </div>
+      <button class="btn btn-amber" onclick="showPage('home');jumpTo('contact')">Get matched <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/utm-white.png" alt="UTM"/>
+        <p>Licensed mortgage professionals serving Southern California.</p>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('team');return false;">Our team</a></li>
+        <li><a href="#" onclick="showPage('home');jumpTo('testimonials');return false;">Reviews</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Programs</h5><ul>
+        <li><a href="#" onclick="showPage('loans');return false;">All programs</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:818-447-7035">(818) 447-7035</a></li>
+        <li><a href="mailto:arin@myunitedtrust.com">arin@myunitedtrust.com</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 United Trust Mortgage · NMLS #1220456 · All rights reserved.</div>
+      <div class="footer-badges"><div class="footer-badge">Equal Housing</div><div class="footer-badge">NMLS #1220456</div></div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end loans -->
+
+<!-- ============ TEAM PAGE ============ -->
+<div class="page" id="page-team" data-screen-label="03 Team">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow">Our team</div>
+      <h1>The experts<br/><em>behind</em> every close.</h1>
+    </div>
+    <p>Experienced loan officers who underwrite what they broker — combining technical depth with a client-first approach.</p>
+  </div>
+</section>
+
+<section class="team-page">
+  <div class="team-grid-page">
+    <div class="team-card-page" onclick="showPage('lo-arin')">
+      <div class="team-photo">
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-900) 100%); display: flex; align-items: flex-end; justify-content: center;">
+          <div style="font-family: var(--serif); font-size: 180px; color: rgba(212,165,116,0.18); line-height: 1; margin-bottom: -30px;">AB</div>
+        </div>
+        <div class="team-photo-badge"><span class="dot"></span> Accepting new clients</div>
+      </div>
+      <div class="team-info">
+        <h3>Arin Baghermian</h3>
+        <div class="role">Mortgage Loan Officer · NMLS #1220456</div>
+        <p>Non-QM specialist with expertise in DSCR, bank statement, P&amp;L, and alt-doc loans. Serves investors and self-employed borrowers across Southern California.</p>
+        <div class="team-specialties">
+          <span class="team-spec-tag">DSCR</span>
+          <span class="team-spec-tag">Bank Statement</span>
+          <span class="team-spec-tag">P&amp;L</span>
+          <span class="team-spec-tag">+9 more</span>
+        </div>
+        <a class="learn-more">View profile <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="team-placeholder">
+      <div class="plus">+</div>
+      <h4>Join our team</h4>
+      <p>We're always looking for experienced loan officers. If you love getting complex deals done, we'd love to talk.</p>
+    </div>
+    <div class="team-placeholder">
+      <div class="plus">+</div>
+      <h4>More coming soon</h4>
+      <p>Additional loan officers are joining United Trust Mortgage this quarter.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="assets/utm-white.png" alt="UTM"/><p>Licensed mortgage professionals serving Southern California.</p></div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('loans');return false;">Programs</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Programs</h5><ul><li><a href="#" onclick="showPage('loans');return false;">All programs</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:818-447-7035">(818) 447-7035</a></li>
+        <li><a href="mailto:arin@myunitedtrust.com">arin@myunitedtrust.com</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 United Trust Mortgage · NMLS #1220456</div>
+      <div class="footer-badges"><div class="footer-badge">Equal Housing</div></div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end team -->
+
+<!-- ============ PARTNERS PAGE ============ -->
+<div class="page" id="page-partners" data-screen-label="05 Partners">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow">For Realtor Partners</div>
+      <h1>Partners.<br><em>Tools that close.</em></h1>
+    </div>
+    <p>A growing toolkit for realtor partners. Generate branded or co-branded marketing in seconds — open house flyers, funding announcements, and loan program one-sheets.</p>
+  </div>
+</section>
+
+<section class="partners-page">
+
+  <!-- Intro card -->
+  <div class="partners-intro">
+    <div class="partners-intro-left">
+      <div class="partners-intro-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 13H8"/><path d="M16 13h-2"/><path d="M10 17H8"/><path d="M16 17h-2"/></svg>
+      </div>
+      <div>
+        <h3>Co-branded marketing, generated in seconds</h3>
+        <p>Fill in your details once — download polished flyers with your branding, or co-branded with Arin &amp; United Trust Mortgage.</p>
+      </div>
+    </div>
+    <span class="pill"><span style="width:6px;height:6px;border-radius:50%;background:#3a6b56;display:inline-block;"></span> Live now</span>
+  </div>
+
+  <!-- Resource tabs (future expansion: Guidelines, Matrices, Scenarios, etc.) -->
+  <div class="resource-tabs" role="tablist">
+    <button class="resource-tab active" data-resource="flyers">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+      Flyer Generator <span class="count">3</span>
+    </button>
+    <button class="resource-tab" data-resource="soon" onclick="toast('Coming soon — loan matrices &amp; quick-reference guides.')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+      Guidelines &amp; Matrices
+    </button>
+    <button class="resource-tab" data-resource="soon" onclick="toast('Coming soon — submit scenarios directly from the portal.')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Scenario Desk
+    </button>
+  </div>
+
+  <!-- Resource header -->
+  <div class="resource-head">
+    <div>
+      <div class="eyebrow">Resource 01</div>
+      <h2>Flyer Generator</h2>
+      <p>Three flyer types. Solo or co-branded. Live preview. PNG export.</p>
+    </div>
+    <div class="resource-meta"><span class="dot"></span> Partner tool</div>
+  </div>
+
+  <!-- Two column layout -->
+  <div class="partners-layout">
+
+    <!-- LEFT: Form -->
+    <div>
+
+      <!-- 1. Flyer type -->
+      <div class="panel">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Choose flyer type</h3>
+          </div>
+          <span class="step">Step 01</span>
+        </div>
+        <div class="panel-body">
+          <div class="flyer-type-grid">
+            <div class="flyer-type-chip active" data-flyer="openhouse">
+              <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+              <div class="title">Open House</div>
+              <div class="sub">Property showcase</div>
+            </div>
+            <div class="flyer-type-chip" data-flyer="justfunded">
+              <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2-2-4 4 4 4 2-2"/><path d="M18 8a6 6 0 1 0-12 0c0 3 2 5 2 5h8s2-2 2-5z"/><path d="M10 13h4"/></svg></div>
+              <div class="title">Just Funded</div>
+              <div class="sub">Celebration post</div>
+            </div>
+            <div class="flyer-type-chip" data-flyer="programs">
+              <div class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h3"/><path d="M8 18h6"/></svg></div>
+              <div class="title">Loan Programs</div>
+              <div class="sub">Non-QM menu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Branding -->
+      <div class="panel">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Branding</h3>
+          </div>
+          <span class="step">Step 02</span>
+        </div>
+        <div class="panel-body">
+          <div class="seg-control">
+            <button class="seg-opt active" data-brand="solo">
+              <div class="seg-opt-top">
+                <div>
+                  <div class="seg-title">Solo Branding</div>
+                </div>
+                <span class="seg-check"></span>
+              </div>
+              <div class="seg-sub">Just your branding and contact info on the flyer.</div>
+            </button>
+            <button class="seg-opt" data-brand="cobrand">
+              <div class="seg-opt-top">
+                <div>
+                  <div class="seg-title">Co-Brand with Arin</div>
+                </div>
+                <span class="seg-check"></span>
+              </div>
+              <div class="seg-sub">Your info + Arin Baghermian &amp; United Trust Mortgage.</div>
+            </button>
+          </div>
+
+          <div id="cobrandCard" class="cobrand-card" style="display:none; margin-top:18px;">
+            <span class="cobrand-pill">Auto-added</span>
+            <div class="cobrand-avatar"><img src="assets/arin.jpg" alt="Arin" crossorigin="anonymous"/></div>
+            <div class="cobrand-info">
+              <strong>Arin Baghermian</strong>
+              <div class="role">Mortgage Broker · NMLS 1220456</div>
+              <div class="meta">Arin@myunitedtrust.com · (818) 447-7705<br/>United Trust Mortgage · NMLS 2591548</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Partner info -->
+      <div class="panel">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Your information</h3>
+            <span class="pill">Appears on flyer</span>
+          </div>
+          <span class="step">Step 03</span>
+        </div>
+        <div class="panel-body">
+          <div class="p-form-grid">
+            <div class="p-form-group">
+              <label>First name</label>
+              <input type="text" id="pFirst" placeholder="Alex" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Last name</label>
+              <input type="text" id="pLast" placeholder="Morgan" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Email</label>
+              <input type="email" id="pEmail" placeholder="alex@brokerage.com" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Phone</label>
+              <input type="tel" id="pPhone" placeholder="(818) 555-0199" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>License (DRE) #</label>
+              <input type="text" id="pLicense" placeholder="DRE #01234567" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Company</label>
+              <input type="text" id="pCompany" placeholder="Morgan Realty Group" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Company website</label>
+              <input type="text" id="pWeb" placeholder="morganrealty.com" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Company license #</label>
+              <input type="text" id="pCoLicense" placeholder="DRE #02012345" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group full">
+              <label>Your headshot</label>
+              <label class="file-up" id="pHeadshotUp">
+                <div class="file-up-preview" id="pHeadshotPrev">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="file-up-text">
+                  <strong id="pHeadshotName">Upload your headshot</strong>
+                  <span>PNG or JPG · square works best</span>
+                </div>
+                <button type="button" class="file-up-remove" id="pHeadshotRemove" style="display:none;" onclick="event.preventDefault();event.stopPropagation();removeHeadshot()">Remove</button>
+                <input type="file" id="pHeadshot" accept="image/*" onchange="onHeadshot(event)"/>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Flyer-specific fields -->
+
+      <!-- Open House fields -->
+      <div class="panel flyer-fields" data-for="openhouse">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Property details</h3>
+          </div>
+          <span class="step">Step 04</span>
+        </div>
+        <div class="panel-body">
+          <div class="p-form-grid">
+            <div class="p-form-group full">
+              <label>Property photo</label>
+              <label class="file-up" id="pPropPhotoUp">
+                <div class="file-up-preview" id="pPropPhotoPrev">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="file-up-text">
+                  <strong id="pPropPhotoName">Upload property photo</strong>
+                  <span>Landscape orientation recommended</span>
+                </div>
+                <button type="button" class="file-up-remove" id="pPropPhotoRemove" style="display:none;" onclick="event.preventDefault();event.stopPropagation();removePropPhoto()">Remove</button>
+                <input type="file" id="pPropPhoto" accept="image/*" onchange="onPropPhoto(event)"/>
+              </label>
+            </div>
+            <div class="p-form-group full">
+              <label>Property address</label>
+              <input type="text" id="pAddr" placeholder="1234 Maple Ave, Pasadena CA 91101" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Beds</label>
+              <input type="number" id="pBeds" placeholder="4" min="0" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Baths</label>
+              <input type="number" id="pBaths" placeholder="3" min="0" step="0.5" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group">
+              <label>Sq ft</label>
+              <input type="number" id="pSqft" placeholder="2,450" min="0" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group full">
+              <label>Features — press Enter to add</label>
+              <input type="text" id="pFeatInput" placeholder="Pool, ADU, Remodeled Kitchen…" onkeydown="if(event.key==='Enter'){event.preventDefault();addFeature(this.value);this.value='';}"/>
+              <div class="feat-list" id="pFeatList"></div>
+              <div class="feat-suggested">
+                <button onclick="addFeature('Pool')">+ Pool</button>
+                <button onclick="addFeature('Gated')">+ Gated</button>
+                <button onclick="addFeature('ADU')">+ ADU</button>
+                <button onclick="addFeature('Remodeled Kitchen')">+ Remodeled Kitchen</button>
+                <button onclick="addFeature('Views')">+ Views</button>
+                <button onclick="addFeature('2-Car Garage')">+ 2-Car Garage</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Just Funded fields -->
+      <div class="panel flyer-fields" data-for="justfunded" style="display:none;">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Celebration details</h3>
+          </div>
+          <span class="step">Step 04</span>
+        </div>
+        <div class="panel-body">
+          <div class="p-form-grid">
+            <div class="p-form-group full">
+              <label>Property photo</label>
+              <label class="file-up" id="pPropPhotoUp2">
+                <div class="file-up-preview" id="pPropPhotoPrev2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="file-up-text">
+                  <strong id="pPropPhotoName2">Upload property photo</strong>
+                  <span>Clean, well-lit exterior works best</span>
+                </div>
+                <button type="button" class="file-up-remove" id="pPropPhotoRemove2" style="display:none;" onclick="event.preventDefault();event.stopPropagation();removePropPhoto()">Remove</button>
+                <input type="file" id="pPropPhoto2" accept="image/*" onchange="onPropPhoto(event)"/>
+              </label>
+            </div>
+            <div class="p-form-group">
+              <label>Headline</label>
+              <select id="pJfHeadline" onchange="updateFlyer()">
+                <option value="Just Funded.">Just Funded.</option>
+                <option value="Sold &amp; Funded.">Sold &amp; Funded.</option>
+                <option value="Another one closed.">Another one closed.</option>
+                <option value="Keys delivered.">Keys delivered.</option>
+              </select>
+            </div>
+            <div class="p-form-group">
+              <label>City / area</label>
+              <input type="text" id="pJfCity" placeholder="Pasadena, CA" oninput="updateFlyer()"/>
+            </div>
+            <div class="p-form-group full">
+              <label>Subline</label>
+              <input type="text" id="pJfSub" placeholder="Another happy homeowner, another dream delivered." oninput="updateFlyer()"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loan Programs fields -->
+      <div class="panel flyer-fields" data-for="programs" style="display:none;">
+        <div class="panel-hdr">
+          <div class="panel-hdr-left">
+            <h3>Programs to feature</h3>
+            <span class="pill amber">Non-QM focus</span>
+          </div>
+          <span class="step">Step 04</span>
+        </div>
+        <div class="panel-body">
+          <div class="p-form-group full" style="margin-bottom:14px;">
+            <label>Headline</label>
+            <input type="text" id="pLpHeadline" value="Non-QM done right." oninput="updateFlyer()"/>
+          </div>
+          <div class="p-form-group full" style="margin-bottom:14px;">
+            <label>Subline</label>
+            <input type="text" id="pLpSub" value="Flexible lending for self-employed, investors, and foreign borrowers." oninput="updateFlyer()"/>
+          </div>
+          <label style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px;display:block;">Programs to include</label>
+          <div class="p-form-grid" id="pProgramToggles">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Live preview -->
+    <div>
+      <div class="preview-wrap">
+        <div class="preview-toolbar">
+          <div class="preview-toolbar-left">
+            <span class="label">Live Preview</span>
+            <span class="pill" id="previewTypeLabel">Open House</span>
+          </div>
+          <div class="zoom-btns">
+            <button class="preview-zoom-btn" onclick="zoomFlyer(-0.1)" title="Zoom out">−</button>
+            <button class="preview-zoom-btn" onclick="zoomFlyer(0.1)" title="Zoom in">+</button>
+          </div>
+        </div>
+
+        <div class="preview-canvas-wrap">
+          <div id="flyerRoot" class="flyer"><!-- populated by JS --></div>
+        </div>
+
+        <div class="preview-actions">
+          <button class="btn btn-ghost" onclick="downloadFlyer('png')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PNG
+          </button>
+          <button class="btn btn-primary" onclick="downloadFlyer('pdf')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Download PDF
+          </button>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:var(--ink-mute);text-align:center;margin-top:12px;line-height:1.5;">
+        All generated flyers must comply with fair-housing and state advertising rules.<br/>
+        Headshot &amp; company info are never shared.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="toast" id="toast"><span class="check">✓</span><span id="toastMsg">Saved</span></div>
+
+</div><!-- end partners -->
+
+<!-- ============ LO PROFILE: ARIN ============ -->
+<div class="page" id="page-lo-arin" data-screen-label="04 LO Arin">
+
+<section class="lo-hero-page">
+  <div class="lo-hero-inner">
+    <div>
+      <div class="lo-breadcrumb"><a href="#" onclick="showPage('team');return false;">Our team</a> <span style="margin: 0 6px;">/</span> Arin Baghermian</div>
+      <div class="lo-role-chip"><span class="dot"></span> Loan Officer · Non-QM specialist</div>
+      <h1>Arin<br/><em>Baghermian.</em></h1>
+      <p class="lo-tagline">NonQM underwriter, trainer, and broker. The specialist you call when the last lender said no.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="showPage('home');jumpTo('contact')">Schedule a call <span class="arrow">→</span></button>
+        <a href="tel:818-447-7035" class="btn btn-ghost">(818) 447-7035</a>
+      </div>
+      <div class="lo-quick-meta">
+        <div class="lo-quick-meta-item"><span class="lo-quick-meta-label">NMLS</span><span class="lo-quick-meta-value">#1220456</span></div>
+        <div class="lo-quick-meta-item"><span class="lo-quick-meta-label">Area</span><span class="lo-quick-meta-value">SoCal</span></div>
+        <div class="lo-quick-meta-item"><span class="lo-quick-meta-label">Specialty</span><span class="lo-quick-meta-value">Non-QM</span></div>
+        <div class="lo-quick-meta-item"><span class="lo-quick-meta-label">Languages</span><span class="lo-quick-meta-value">EN · AR</span></div>
+      </div>
+    </div>
+    <div class="lo-photo-wrap">
+      <div style="position: absolute; inset: 0; background: linear-gradient(135deg, var(--navy-700), var(--navy-900)); display: flex; align-items: flex-end; justify-content: center;">
+        <div style="font-family: var(--serif); font-size: 240px; color: rgba(212,165,116,0.18); line-height: 1; margin-bottom: -40px;">AB</div>
+      </div>
+      <div class="lo-photo-overlay">
+        <div class="lo-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--sage);"></span> Available now</div>
+        <div class="lo-badge">★★★★★ 5.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lo-specialties-page">
+  <div class="lo-spec-inner">
+    <h3>Areas of expertise</h3>
+    <div class="lo-spec-grid">
+      <span class="lo-spec-chip">DSCR Loans</span>
+      <span class="lo-spec-chip">Bank Statement</span>
+      <span class="lo-spec-chip">P&amp;L Loans</span>
+      <span class="lo-spec-chip">Stated Income</span>
+      <span class="lo-spec-chip">Alt-Doc</span>
+      <span class="lo-spec-chip">Conventional</span>
+      <span class="lo-spec-chip">FHA / VA</span>
+      <span class="lo-spec-chip">Jumbo</span>
+      <span class="lo-spec-chip">Fix &amp; Flip</span>
+      <span class="lo-spec-chip">Construction</span>
+      <span class="lo-spec-chip">Self-Employed Borrowers</span>
+      <span class="lo-spec-chip">Real Estate Investors</span>
+    </div>
+  </div>
+</section>
+
+<section class="lo-about">
+  <div class="lo-about-inner">
+    <div class="eyebrow">About Arin</div>
+    <h2 class="section-title" style="margin: 18px 0 36px;">A specialist when<br/><em>it matters most.</em></h2>
+    <p>Arin Baghermian is a Non-QM underwriter, trainer, and mortgage broker with deep expertise in alternative documentation loan programs. He serves as a loan officer at United Trust Mortgage and works across Southern California helping self-employed borrowers, real estate investors, and clients with complex financial profiles secure the financing they need.</p>
+    <p>With hands-on experience underwriting and originating DSCR, bank statement, P&amp;L, and alt-doc loans, Arin brings a rare combination of technical depth and deal-closing ability to every transaction. If conventional lenders have turned you away, Arin knows how to find a path forward.</p>
+    <p>He is known for his responsiveness, transparency, and ability to move quickly — because in real estate, timing is everything.</p>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testi-head">
+      <div>
+        <div class="eyebrow">Client reviews</div>
+        <h2 class="section-title" style="margin-top:18px;">What clients say<br/>about <em>Arin.</em></h2>
+      </div>
+      <div class="testi-rating">
+        <div class="testi-rating-stars">★★★★★</div>
+        <div class="testi-rating-text">5.0 average · 100% would refer</div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The communication was exceptional. He kept me informed at every step and made the whole process feel effortless.</p>
+        <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Luis M.</div><div class="testi-role">First-time homeowner</div></div></div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Always available, had a great attitude, and truly put the client first at all times.</p>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Michele R.</div><div class="testi-role">Real Estate Agent</div></div></div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Efficient, quick to respond, transparent. Couldn't ask for anything more.</p>
+        <div class="testi-author"><div class="testi-avatar">E</div><div><div class="testi-name">Eric T.</div><div class="testi-role">Real Estate Agent</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="assets/utm-white.png" alt="UTM"/><p>Arin Baghermian · NMLS #1220456 · United Trust Mortgage</p></div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('team');return false;">Team</a></li>
+        <li><a href="#" onclick="showPage('loans');return false;">Programs</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:818-447-7035">(818) 447-7035</a></li>
+        <li><a href="mailto:arin@myunitedtrust.com">arin@myunitedtrust.com</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul>
+        <li>NMLS #1220456</li>
+        <li>Equal Housing Lender</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 United Trust Mortgage · NMLS #1220456</div>
+      <div class="footer-badges"><div class="footer-badge">Equal Housing</div></div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end lo-arin -->
+
+<!-- ============ TWEAKS PANEL ============ -->
+<div class="tweaks" id="tweaks">
+  <h5>Tweaks <span class="close" onclick="hideTweaks()">×</span></h5>
+  <div class="tweaks-sub">Explore design variants</div>
+
+  <div class="tweak-row">
+    <div class="tweak-label">Surface theme</div>
+    <div class="tweak-options" data-key="theme">
+      <button class="tweak-opt active" data-val="cream">Warm cream</button>
+      <button class="tweak-opt" data-val="paper">Pure white</button>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <div class="tweak-label">Accent color</div>
+    <div class="tweak-swatches" data-key="accent">
+      <div class="tweak-swatch active" data-val="amber" style="background: oklch(0.78 0.11 75);" title="Warm amber"></div>
+      <div class="tweak-swatch" data-val="sage" style="background: oklch(0.72 0.08 160);" title="Trust sage"></div>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <div class="tweak-label">Live calculator</div>
+    <div class="tweak-toggle-row">
+      <span style="font-size: 12.5px; color: var(--ink-soft);">Show in hero</span>
+      <div class="tweak-toggle on" data-key="calc"></div>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <div class="tweak-label">Hero headline</div>
+    <div class="tweak-options" data-key="headline">
+      <button class="tweak-opt active" data-val="life">Fits your life</button>
+      <button class="tweak-opt" data-val="close">Close with clarity</button>
+      <button class="tweak-opt" data-val="yes">Get to yes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========== ROUTING ========== */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo({ top: 0 });
+  initReveals();
+}
+function jumpTo(id) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 60);
+}
+
+/* ========== REVEAL ========== */
+function initReveals() {
+  const items = document.querySelectorAll('.reveal:not(.visible)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(el => io.observe(el));
+}
+
+/* ========== NAV SCROLL ========== */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ========== CALCULATOR ========== */
+const fmt = (n) => n.toLocaleString('en-US');
+const fmtMoney = (n) => '$' + Math.round(n).toLocaleString('en-US');
+let term = 30;
+
+function calc() {
+  const price = +document.getElementById('price').value;
+  const downPct = +document.getElementById('downPct').value;
+  const rate = +document.getElementById('rate').value;
+  const loan = price * (1 - downPct / 100);
+  const r = (rate / 100) / 12;
+  const n = term * 12;
+  const pmt = r === 0 ? loan / n : loan * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
+  document.getElementById('priceLbl').textContent = fmtMoney(price);
+  document.getElementById('downPctLbl').textContent = downPct + '%';
+  document.getElementById('downLbl').textContent = fmtMoney(price * downPct / 100);
+  document.getElementById('rateLbl').textContent = rate.toFixed(2) + '%';
+  document.getElementById('paymentLbl').textContent = Math.round(pmt).toLocaleString('en-US');
+  document.getElementById('loanAmtLbl').textContent = fmtMoney(loan);
+}
+['price','downPct','rate'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', calc);
+});
+document.querySelectorAll('#termBtns .calc-term-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#termBtns .calc-term-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    term = +btn.dataset.term;
+    calc();
+  });
+});
+calc();
+
+/* ========== STATS COUNTER ========== */
+function countUp(el, target, duration = 1200) {
+  const start = performance.now();
+  function frame(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased);
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const n = e.target.querySelector('.counter');
+      if (n && !n.dataset.done) {
+        n.dataset.done = '1';
+        countUp(n, +e.target.dataset.count);
+      }
+      statObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stat-num[data-count]').forEach(el => statObs.observe(el));
+
+/* ========== LOAN FILTER ========== */
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    document.querySelectorAll('#loansGrid .loan-card-page').forEach(card => {
+      const show = f === 'all' || card.dataset.cat === f;
+      card.classList.toggle('hidden', !show);
+    });
+  });
+});
+
+/* ========== TWEAKS ========== */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "cream",
+  "accent": "amber",
+  "calc": true,
+  "headline": "life"
+}/*EDITMODE-END*/;
+let tweakState = {...TWEAK_DEFAULTS};
+
+window.addEventListener('message', (e) => {
+  if (!e.data) return;
+  if (e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('visible');
+  if (e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('visible');
+});
+function hideTweaks() {
+  document.getElementById('tweaks').classList.remove('visible');
+  window.parent.postMessage({ type: '__edit_mode_deactivated' }, '*');
+}
+function applyTweaks() {
+  document.body.classList.toggle('theme-paper', tweakState.theme === 'paper');
+  document.body.classList.toggle('accent-sage', tweakState.accent === 'sage');
+  document.getElementById('calc').style.display = tweakState.calc ? '' : 'none';
+  document.querySelector('.hero-inner').style.gridTemplateColumns = tweakState.calc ? '1.1fr 1fr' : '1fr';
+  const h1 = document.querySelector('.hero h1');
+  if (tweakState.headline === 'life') h1.innerHTML = 'A mortgage that<br/>fits your life,<br/><em class="underline-sweep">not the other way around.</em>';
+  if (tweakState.headline === 'close') h1.innerHTML = 'Home loans,<br/>closed with<br/><em class="underline-sweep">clarity and care.</em>';
+  if (tweakState.headline === 'yes') h1.innerHTML = 'The team<br/>that gets you<br/><em class="underline-sweep">to yes, faster.</em>';
+}
+function setTweak(key, val) {
+  tweakState[key] = val;
+  applyTweaks();
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*');
+}
+document.querySelectorAll('.tweak-options').forEach(group => {
+  const key = group.dataset.key;
+  group.querySelectorAll('.tweak-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.tweak-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setTweak(key, btn.dataset.val);
+    });
+  });
+});
+document.querySelectorAll('.tweak-swatches').forEach(group => {
+  const key = group.dataset.key;
+  group.querySelectorAll('.tweak-swatch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      group.querySelectorAll('.tweak-swatch').forEach(s => s.classList.remove('active'));
+      sw.classList.add('active');
+      setTweak(key, sw.dataset.val);
+    });
+  });
+});
+document.querySelectorAll('.tweak-toggle').forEach(t => {
+  t.addEventListener('click', () => {
+    t.classList.toggle('on');
+    setTweak(t.dataset.key, t.classList.contains('on'));
+  });
+});
+applyTweaks();
+
+// announce edit mode
+setTimeout(() => {
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+}, 100);
+
+initReveals();
+
+/* ========== PARTNERS / FLYER GENERATOR ========== */
+const ARIN = {
+  name: 'Arin Baghermian',
+  role: 'Mortgage Broker',
+  nmls: 'NMLS 1220456',
+  email: 'Arin@myunitedtrust.com',
+  phone: '(818) 447-7705',
+  web: 'www.myunitedtrust.com',
+  company: 'United Trust Mortgage',
+  companyNmls: 'NMLS 2591548',
+  photo: 'assets/arin.jpg'
+};
+
+const PROGRAMS = [
+  { id:'dscr', name:'DSCR', sub:'Investor cash-flow', cat:'nonqm' },
+  { id:'bankstmt', name:'Bank Statement', sub:'12 / 24-mo self-employed', cat:'nonqm' },
+  { id:'pnl', name:'P&L Only', sub:'CPA-prepared', cat:'nonqm' },
+  { id:'assetdep', name:'Asset Depletion', sub:'Qualify on reserves', cat:'nonqm' },
+  { id:'foreign', name:'Foreign National', sub:'No US credit needed', cat:'nonqm' },
+  { id:'itin', name:'ITIN', sub:'No SSN required', cat:'nonqm' },
+  { id:'altdoc', name:'Alt-Doc', sub:'1099, WVOE, flex docs', cat:'nonqm' },
+  { id:'conv', name:'Conventional', sub:'Agency / jumbo', cat:'gov' },
+  { id:'vafha', name:'VA &amp; FHA', sub:'Government programs', cat:'gov' },
+];
+
+let flyerState = {
+  type: 'openhouse',
+  brand: 'solo',
+  partner: { first:'', last:'', email:'', phone:'', license:'', company:'', web:'', coLicense:'', photo: null },
+  property: { photo:null, addr:'', beds:'', baths:'', sqft:'', features: [] },
+  jf: { headline:'Just Funded.', city:'', sub:'Another happy homeowner, another dream delivered.' },
+  lp: { headline:'Non-QM done right.', sub:'Flexible lending for self-employed, investors, and foreign borrowers.', selected: ['dscr','bankstmt','pnl','assetdep','foreign','itin','altdoc'] },
+  zoom: 1,
+};
+
+// Flyer type picker
+document.querySelectorAll('.flyer-type-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.flyer-type-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    flyerState.type = chip.dataset.flyer;
+    document.querySelectorAll('.flyer-fields').forEach(p => {
+      p.style.display = (p.dataset.for === flyerState.type) ? '' : 'none';
+    });
+    const map = { openhouse:'Open House', justfunded:'Just Funded', programs:'Loan Programs' };
+    document.getElementById('previewTypeLabel').textContent = map[flyerState.type];
+    updateFlyer();
+  });
+});
+
+// Brand segmented
+document.querySelectorAll('.seg-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.seg-opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    flyerState.brand = opt.dataset.brand;
+    document.getElementById('cobrandCard').style.display = (flyerState.brand === 'cobrand') ? '' : 'none';
+    updateFlyer();
+  });
+});
+
+// File uploads
+function readImgAsDataUrl(file, cb) {
+  const r = new FileReader();
+  r.onload = e => cb(e.target.result);
+  r.readAsDataURL(file);
+}
+function onHeadshot(e) {
+  const f = e.target.files[0]; if (!f) return;
+  readImgAsDataUrl(f, (url) => {
+    flyerState.partner.photo = url;
+    const prev = document.getElementById('pHeadshotPrev');
+    prev.innerHTML = `<img src="${url}"/>`;
+    document.getElementById('pHeadshotName').textContent = f.name;
+    document.getElementById('pHeadshotUp').classList.add('has-file');
+    document.getElementById('pHeadshotRemove').style.display = '';
+    updateFlyer();
+  });
+}
+function removeHeadshot() {
+  flyerState.partner.photo = null;
+  document.getElementById('pHeadshot').value = '';
+  document.getElementById('pHeadshotPrev').innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+  document.getElementById('pHeadshotName').textContent = 'Upload your headshot';
+  document.getElementById('pHeadshotUp').classList.remove('has-file');
+  document.getElementById('pHeadshotRemove').style.display = 'none';
+  updateFlyer();
+}
+function onPropPhoto(e) {
+  const f = e.target.files[0]; if (!f) return;
+  readImgAsDataUrl(f, (url) => {
+    flyerState.property.photo = url;
+    ['pPropPhotoPrev','pPropPhotoPrev2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.innerHTML = `<img src="${url}"/>`;
+    });
+    ['pPropPhotoName','pPropPhotoName2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.textContent = f.name;
+    });
+    ['pPropPhotoUp','pPropPhotoUp2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.classList.add('has-file');
+    });
+    ['pPropPhotoRemove','pPropPhotoRemove2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.style.display = '';
+    });
+    updateFlyer();
+  });
+}
+function removePropPhoto() {
+  flyerState.property.photo = null;
+  ['pPropPhoto','pPropPhoto2'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  ['pPropPhotoPrev','pPropPhotoPrev2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
+  });
+  ['pPropPhotoName','pPropPhotoName2'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.textContent = 'Upload property photo';
+  });
+  ['pPropPhotoUp','pPropPhotoUp2'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('has-file'); });
+  ['pPropPhotoRemove','pPropPhotoRemove2'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  updateFlyer();
+}
+
+// Features
+function addFeature(v) {
+  v = (v || '').trim();
+  if (!v) return;
+  if (flyerState.property.features.includes(v)) return;
+  flyerState.property.features.push(v);
+  renderFeatList();
+  updateFlyer();
+}
+function removeFeature(i) {
+  flyerState.property.features.splice(i, 1);
+  renderFeatList();
+  updateFlyer();
+}
+function renderFeatList() {
+  const el = document.getElementById('pFeatList');
+  el.innerHTML = flyerState.property.features.map((f, i) =>
+    `<span class="feat-tag">${escHtml(f)}<span class="x" onclick="removeFeature(${i})">✕</span></span>`
+  ).join('');
+}
+
+// Programs toggles
+function initProgramToggles() {
+  const root = document.getElementById('pProgramToggles');
+  if (!root) return;
+  root.innerHTML = PROGRAMS.map(p => {
+    const on = flyerState.lp.selected.includes(p.id);
+    return `<button class="seg-opt ${on?'active':''}" style="padding:12px 14px;" data-pid="${p.id}">
+      <div class="seg-opt-top">
+        <div>
+          <div class="seg-title" style="font-size:15px;">${p.name}</div>
+        </div>
+        <span class="seg-check"></span>
+      </div>
+      <div class="seg-sub">${p.sub}</div>
+    </button>`;
+  }).join('');
+  root.querySelectorAll('[data-pid]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = btn.dataset.pid;
+      const idx = flyerState.lp.selected.indexOf(id);
+      if (idx === -1) flyerState.lp.selected.push(id); else flyerState.lp.selected.splice(idx, 1);
+      btn.classList.toggle('active');
+      updateFlyer();
+    });
+  });
+}
+initProgramToggles();
+
+// Sync form values → state
+function readForm() {
+  flyerState.partner.first = val('pFirst');
+  flyerState.partner.last = val('pLast');
+  flyerState.partner.email = val('pEmail');
+  flyerState.partner.phone = val('pPhone');
+  flyerState.partner.license = val('pLicense');
+  flyerState.partner.company = val('pCompany');
+  flyerState.partner.web = val('pWeb');
+  flyerState.partner.coLicense = val('pCoLicense');
+  flyerState.property.addr = val('pAddr');
+  flyerState.property.beds = val('pBeds');
+  flyerState.property.baths = val('pBaths');
+  flyerState.property.sqft = val('pSqft');
+  flyerState.jf.headline = val('pJfHeadline');
+  flyerState.jf.city = val('pJfCity');
+  flyerState.jf.sub = val('pJfSub');
+  flyerState.lp.headline = val('pLpHeadline');
+  flyerState.lp.sub = val('pLpSub');
+}
+function val(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function escHtml(s) { return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// Render footer (shared)
+function flyerFooter() {
+  const p = flyerState.partner;
+  const name = ((p.first||'') + ' ' + (p.last||'')).trim() || 'Your Name';
+  const co = flyerState.brand === 'cobrand';
+
+  const partnerAvatar = p.photo
+    ? `<span class="fl-avatar"><img src="${p.photo}"/></span>`
+    : `<span class="fl-avatar">${(p.first||'?').charAt(0).toUpperCase()}</span>`;
+
+  const arinAvatar = `<span class="fl-avatar second"><img src="${ARIN.photo}" crossorigin="anonymous"/></span>`;
+
+  const contactLine = [
+    p.phone || '(Your phone)',
+    p.email || '(Your email)',
+    p.web || ''
+  ].filter(Boolean).map(v => `<span>${escHtml(v)}</span>`).join('');
+
+  if (co) {
+    return `
+      <div class="fl-foot">
+        <div class="fl-avatars">${partnerAvatar}${arinAvatar}</div>
+        <div class="fl-foot-info">
+          <div class="fl-foot-name">${escHtml(name)} <span class="amp">&amp;</span> Arin Baghermian</div>
+          <div class="fl-foot-role">${escHtml(p.company || 'Your Brokerage')} · United Trust Mortgage</div>
+          <div class="fl-foot-contact">
+            <span>${escHtml(p.phone || 'Partner phone')}</span>
+            <span>${ARIN.phone}</span>
+            <span>${escHtml(p.license || 'DRE #')}</span>
+            <span>${ARIN.nmls}</span>
+          </div>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="fl-foot">
+      <div class="fl-avatars">${partnerAvatar}</div>
+      <div class="fl-foot-info">
+        <div class="fl-foot-name">${escHtml(name)}</div>
+        <div class="fl-foot-role">${escHtml(p.company || 'Your Brokerage')} · ${escHtml(p.license || 'DRE #')}</div>
+        <div class="fl-foot-contact">
+          ${contactLine || '<span>Add your contact info →</span>'}
+        </div>
+      </div>
+    </div>`;
+}
+
+// Render Open House flyer
+function renderOpenHouse() {
+  const pr = flyerState.property;
+  const photoStyle = pr.photo ? `background-image:url('${pr.photo}');background-size:cover;background-position:center;` : '';
+  const photoClass = pr.photo ? '' : 'empty';
+  const specs = (pr.beds || pr.baths || pr.sqft) ? `
+    <div class="fl-oh-specs">
+      <div class="fl-oh-spec"><div class="num">${pr.beds || '—'}</div><div class="lbl">Beds</div></div>
+      <div class="fl-oh-spec"><div class="num">${pr.baths || '—'}</div><div class="lbl">Baths</div></div>
+      <div class="fl-oh-spec"><div class="num">${pr.sqft ? Number(pr.sqft).toLocaleString() : '—'}</div><div class="lbl">Sq Ft</div></div>
+    </div>` : '';
+  const feats = pr.features.length ? `
+    <div class="fl-oh-feats">
+      ${pr.features.map(f => `<span class="fl-oh-feat">${escHtml(f)}</span>`).join('')}
+    </div>` : '';
+  return `
+    <div class="fl-oh-photo ${photoClass}" style="${photoStyle}">
+      <span class="fl-oh-badge">Open House</span>
+    </div>
+    <div class="fl-oh-body">
+      <div class="fl-oh-eyebrow">You're Invited</div>
+      <h2 class="fl-oh-title">${escHtml(pr.addr ? pr.addr.split(',')[0] : 'Your next home.')}</h2>
+      <div class="fl-oh-addr">${escHtml(pr.addr || 'Full property address appears here')}</div>
+    </div>
+    ${specs}
+    ${feats}
+    <div style="flex:1;min-height:12px;"></div>
+    ${flyerFooter()}
+  `;
+}
+
+// Render Just Funded flyer
+function renderJustFunded() {
+  const pr = flyerState.property;
+  const j = flyerState.jf;
+  const photoStyle = pr.photo ? `background-image:url('${pr.photo}');background-size:cover;background-position:center;` : '';
+  const photoClass = pr.photo ? '' : 'empty';
+  const parts = (j.headline || 'Just Funded.').split(' ');
+  const last = parts.pop();
+  const firstPart = parts.join(' ');
+  return `
+    <div class="fl-jf-photo ${photoClass}" style="${photoStyle}">
+      <span class="fl-jf-stamp">★ Closed</span>
+    </div>
+    <div class="fl-jf-body">
+      <div class="fl-jf-eyebrow">Congratulations</div>
+      <h2 class="fl-jf-title">${escHtml(firstPart)} <em>${escHtml(last)}</em></h2>
+      <div class="fl-jf-divider"></div>
+      <p class="fl-jf-sub" style="margin-top:14px;">${escHtml(j.sub || 'Another happy homeowner.')}</p>
+      ${j.city ? `<div style="font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.2em;text-transform:uppercase;margin-top:12px;">${escHtml(j.city)}</div>` : ''}
+    </div>
+    <div style="flex:1;min-height:12px;"></div>
+    ${flyerFooter()}
+  `;
+}
+
+// Render Loan Programs flyer
+function renderLoanPrograms() {
+  const l = flyerState.lp;
+  const items = PROGRAMS.filter(p => l.selected.includes(p.id)).map(p => `
+    <div class="fl-lp-item ${p.cat==='gov'?'gov':''}">
+      <span class="dot"></span>
+      <div><strong>${p.name}</strong><span>${p.sub}</span></div>
+    </div>`).join('');
+  return `
+    <div class="fl-lp-header">
+      <div class="fl-lp-eyebrow">For your clients</div>
+      <h2 class="fl-lp-title">${escHtml(l.headline.split('.')[0])}.${l.headline.split('.')[1] ? ` <em>${escHtml(l.headline.split('.').slice(1).join('.').trim() || '')}</em>` : ''}</h2>
+      <p class="fl-lp-sub">${escHtml(l.sub)}</p>
+    </div>
+    <div class="fl-lp-hero">
+      <span class="pill">Non-QM</span>
+      <span class="label">Specialist programs · Common-sense underwriting</span>
+    </div>
+    <div class="fl-lp-list">${items || '<div style="grid-column:span 2;text-align:center;font-size:12px;color:var(--ink-mute);padding:20px;">Select at least one program →</div>'}</div>
+    <div style="flex:1;min-height:8px;"></div>
+    ${flyerFooter()}
+  `;
+}
+
+function updateFlyer() {
+  readForm();
+  const root = document.getElementById('flyerRoot');
+  if (!root) return;
+  let html = '';
+  if (flyerState.type === 'openhouse') html = renderOpenHouse();
+  else if (flyerState.type === 'justfunded') { root.classList.add('fl-jf'); html = renderJustFunded(); }
+  else if (flyerState.type === 'programs') html = renderLoanPrograms();
+  root.classList.toggle('fl-jf', flyerState.type === 'justfunded');
+  root.classList.toggle('fl-lp', flyerState.type === 'programs');
+  root.innerHTML = html;
+}
+
+// Zoom
+function zoomFlyer(delta) {
+  flyerState.zoom = Math.max(0.5, Math.min(1.5, flyerState.zoom + delta));
+  document.getElementById('flyerRoot').style.transform = `scale(${flyerState.zoom})`;
+}
+
+// Toast
+function toast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastT);
+  window._toastT = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// Download
+async function downloadFlyer(format) {
+  const root = document.getElementById('flyerRoot');
+  if (!root) return;
+  const prevTransform = root.style.transform;
+  root.style.transform = 'scale(1)';
+  toast('Rendering flyer…');
+  try {
+    const canvas = await html2canvas(root, {
+      backgroundColor: null,
+      scale: 3,
+      useCORS: true,
+      allowTaint: true,
+      logging: false,
+      windowWidth: root.scrollWidth,
+      windowHeight: root.scrollHeight,
+    });
+    root.style.transform = prevTransform;
+    const fname = `UTM-${flyerState.type}-${Date.now()}`;
+    if (format === 'png') {
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = fname + '.png';
+      a.click();
+      toast('PNG downloaded');
+    } else {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'letter' });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const ratio = canvas.width / canvas.height;
+      const margin = 36;
+      let w = pageW - margin * 2;
+      let h = w / ratio;
+      if (h > pageH - margin * 2) { h = pageH - margin * 2; w = h * ratio; }
+      const x = (pageW - w) / 2;
+      const y = (pageH - h) / 2;
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', x, y, w, h);
+      pdf.save(fname + '.pdf');
+      toast('PDF downloaded');
+    }
+  } catch (err) {
+    console.error(err);
+    root.style.transform = prevTransform;
+    toast('Download failed — try again');
+  }
+}
+
+updateFlyer();
+</body>
+</html>
