@@ -1455,6 +1455,35 @@ setTimeout(() => {
 
 initReveals();
 
+/* ========== SAFETY: force-trigger reveals + stat counters that IO might miss ========== */
+function inViewportLoose(el) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight + 80 && r.bottom > -80;
+}
+function sweepReveals() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    if (inViewportLoose(el)) el.classList.add('visible');
+  });
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+    const n = el.querySelector('.counter');
+    if (!n || n.dataset.done) return;
+    if (inViewportLoose(el)) { n.dataset.done = '1'; countUp(n, +el.dataset.count); }
+  });
+}
+// Sweep on initial paint, scroll, and resize
+requestAnimationFrame(() => requestAnimationFrame(sweepReveals));
+window.addEventListener('load', sweepReveals);
+window.addEventListener('scroll', sweepReveals, { passive: true });
+window.addEventListener('resize', sweepReveals);
+// Hard guarantee: anything still hidden after 2.5s becomes visible
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+    const n = el.querySelector('.counter');
+    if (n && !n.dataset.done) { n.dataset.done = '1'; countUp(n, +el.dataset.count); }
+  });
+}, 2500);
+
 /* ========== PARTNERS / FLYER GENERATOR ========== */
 const ARIN = {
   name: 'Arin Baghermian',
