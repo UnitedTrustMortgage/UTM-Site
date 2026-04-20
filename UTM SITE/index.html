@@ -118,15 +118,15 @@
 <section class="stats" data-screen-label="Stats">
   <div class="stats-grid">
     <div class="stat">
-      <div class="stat-num" data-count="11"><span class="counter">0</span><small>+</small></div>
+      <div class="stat-num" data-count="11"><span class="counter">11</span><small>+</small></div>
       <div class="stat-label">Loan programs<br/>under one roof</div>
     </div>
     <div class="stat">
-      <div class="stat-num" data-count="18"><span class="counter">0</span><small> days avg</small></div>
+      <div class="stat-num" data-count="18"><span class="counter">18</span><small> days avg</small></div>
       <div class="stat-label">From application<br/>to clear-to-close</div>
     </div>
     <div class="stat">
-      <div class="stat-num" data-count="98"><span class="counter">0</span><small>%</small></div>
+      <div class="stat-num" data-count="98"><span class="counter">98</span><small>%</small></div>
       <div class="stat-label">Funded rate on<br/>pre-approved files</div>
     </div>
     <div class="stat">
@@ -1304,6 +1304,12 @@ const fmt = (n) => n.toLocaleString('en-US');
 const fmtMoney = (n) => '$' + Math.round(n).toLocaleString('en-US');
 let term = 30;
 
+function updateSliderFill(el) {
+  if (!el) return;
+  const min = +el.min, max = +el.max, v = +el.value;
+  const pct = max > min ? ((v - min) / (max - min)) * 100 : 0;
+  el.style.setProperty('--_p', pct + '%');
+}
 function calc() {
   const price = +document.getElementById('price').value;
   const downPct = +document.getElementById('downPct').value;
@@ -1318,6 +1324,7 @@ function calc() {
   document.getElementById('rateLbl').textContent = rate.toFixed(2) + '%';
   document.getElementById('paymentLbl').textContent = Math.round(pmt).toLocaleString('en-US');
   document.getElementById('loanAmtLbl').textContent = fmtMoney(loan);
+  ['price','downPct','rate'].forEach(id => updateSliderFill(document.getElementById(id)));
 }
 ['price','downPct','rate'].forEach(id => {
   const el = document.getElementById(id);
@@ -1357,6 +1364,15 @@ const statObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.4 });
 document.querySelectorAll('.stat-num[data-count]').forEach(el => statObs.observe(el));
+
+/* ========== SPOTLIGHT FOLLOW (program cards) ========== */
+document.querySelectorAll('.program').forEach(card => {
+  card.addEventListener('pointermove', (e) => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--_mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--_my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
 
 /* ========== LOAN FILTER ========== */
 document.querySelectorAll('.filter-chip').forEach(chip => {
@@ -1438,6 +1454,35 @@ setTimeout(() => {
 }, 100);
 
 initReveals();
+
+/* ========== SAFETY: force-trigger reveals + stat counters that IO might miss ========== */
+function inViewportLoose(el) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight + 80 && r.bottom > -80;
+}
+function sweepReveals() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    if (inViewportLoose(el)) el.classList.add('visible');
+  });
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+    const n = el.querySelector('.counter');
+    if (!n || n.dataset.done) return;
+    if (inViewportLoose(el)) { n.dataset.done = '1'; countUp(n, +el.dataset.count); }
+  });
+}
+// Sweep on initial paint, scroll, and resize
+requestAnimationFrame(() => requestAnimationFrame(sweepReveals));
+window.addEventListener('load', sweepReveals);
+window.addEventListener('scroll', sweepReveals, { passive: true });
+window.addEventListener('resize', sweepReveals);
+// Hard guarantee: anything still hidden after 2.5s becomes visible
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+    const n = el.querySelector('.counter');
+    if (n && !n.dataset.done) { n.dataset.done = '1'; countUp(n, +el.dataset.count); }
+  });
+}, 2500);
 
 /* ========== PARTNERS / FLYER GENERATOR ========== */
 const ARIN = {
