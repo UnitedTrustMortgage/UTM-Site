@@ -1564,12 +1564,23 @@ html { scrollbar-width: thin; scrollbar-color: rgba(11,30,63,0.28) transparent; 
 .reveal.visible { opacity: 1; transform: none; }
 
 /* — Nav — logo scale up, wordmark refinement — */
-.nav-logo { gap: 12px; }
-.nav-logo img { height: 48px; }
-.nav-logo-mark { font-size: 22px; line-height: 1.05; }
-.nav-logo-mark small { font-size: 10.5px; margin-top: 4px; letter-spacing: 0.2em; }
-.nav { border-bottom-color: rgba(11,30,63,0.04); transition: padding .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease; }
-.nav.scrolled .nav-logo img { height: 40px; }
+.nav { padding: 18px 40px; border-bottom-color: rgba(11,30,63,0.04); transition: padding .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.nav.scrolled { padding: 12px 40px; }
+.nav-logo { gap: 14px; }
+.nav-logo img { height: 56px; width: auto; }
+.nav.scrolled .nav-logo img { height: 46px; }
+.nav-logo-mark { font-size: 26px; line-height: 1.0; letter-spacing: -0.015em; }
+.nav-logo-mark small { font-size: 11px; margin-top: 5px; letter-spacing: 0.22em; }
+@media (max-width: 1024px) {
+  .nav { padding: 14px 20px; }
+  .nav-logo img { height: 44px; }
+  .nav.scrolled .nav-logo img { height: 38px; }
+  .nav-logo-mark { font-size: 22px; }
+  .nav-logo-mark small { font-size: 10px; }
+}
+
+/* — BULLETPROOF: never let .reveal stay hidden — overrides earlier opacity:0 — */
+.reveal { opacity: 1 !important; transform: none !important; }
 .nav.scrolled { box-shadow: 0 1px 0 rgba(11,30,63,0.04), 0 10px 30px -20px rgba(11,30,63,0.25); border-bottom-color: rgba(11,30,63,0.08); }
 .nav-links a { position: relative; }
 .nav-links a:not(.nav-cta)::after {
